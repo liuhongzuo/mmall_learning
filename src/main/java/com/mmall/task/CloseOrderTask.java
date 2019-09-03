@@ -36,7 +36,7 @@ public class CloseOrderTask {
         Long setnxResult = RedisShardedPoolUtil.setnx(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,String.valueOf(System.currentTimeMillis()+lockTimeout));
         if(setnxResult != null && setnxResult.intValue() == 1){
             //如果返回值是1，代表设置成功，获取锁
-            closeOrder(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+//            closeOrder(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
         }else{
             log.info("没有获得分布式锁:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
         }
